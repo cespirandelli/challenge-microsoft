@@ -46,11 +46,11 @@ def generate_text(prompt):
     response = openai.ChatCompletion.create(
         engine="teste-challenge",
         messages=[
-            {"role": "system", "content": "Você é uma AI assistente que ajuda as pessoas a encontrarem informação. Contexto: Responda em português"},
+            {"role": "system", "content": "Você é um assistente que utiliza a Base de dados para responder questões relacionadas a preço de produtos. Contexto: Responda em português"},
             {"role": "user", "content": prompt}
         ],
         temperature=0.7,
-        max_tokens=100,
+        max_tokens=50,
         top_p=0.95,
         frequency_penalty=0,
         presence_penalty=0,
@@ -74,4 +74,10 @@ def text_to_speech(text):
         return False
 
 
-text_to_speech(generate_text(speech_to_text()))
+texto_pessoa = speech_to_text()
+print(f"Usuário: {texto_pessoa}")
+
+gerar_texto = generate_text(texto_pessoa)
+print(f"Aplicativo: {gerar_texto}")
+
+fala_maquina = text_to_speech(gerar_texto)
