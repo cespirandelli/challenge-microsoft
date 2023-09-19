@@ -12,7 +12,8 @@ openai.api_key = "b5e2b36f2df647a1b6ff96611b052725"
 # Set up Azure Speech-to-Text and Text-to-Speech credentials
 speech_key = "63e2e8cdd3774328b2d020432cd2d8a8"
 service_region = "eastus"
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, region=service_region)
 speech_config.speech_synthesis_language = "pt-BR"
 
 # Set up the voice configuration
@@ -27,7 +28,8 @@ def speech_to_text():
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
 
     # Create a speech recognizer and start the recognition
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+    speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, audio_config=audio_config)
     print("Say something...")
 
     result = speech_recognizer.recognize_once_async().get()
@@ -42,6 +44,8 @@ def speech_to_text():
         return "Recognition canceled."
 
 # Define the Azure OpenAI language generation function
+
+
 def generate_text(prompt):
     response = openai.ChatCompletion.create(
         engine="teste-challenge",
