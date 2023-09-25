@@ -1,5 +1,8 @@
-require('dotenv').config();
-const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
+import { config } from 'dotenv';
+import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
+
+config();
+
 const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
 const azureApiKey = process.env.AZURE_OPENAI_KEY;
 const azureDeployment = process.env.AZURE_DEPLOYMENT_ID;
@@ -11,7 +14,7 @@ const messages = [
   { role: "user", content: "Quero comprar arroz branco e fino" },
 ];
 
-async function main() {
+export async function chat() {
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
   const deploymentId = azureDeployment;
   const result = await client.getChatCompletions(deploymentId, messages);
@@ -20,9 +23,3 @@ async function main() {
     console.log(choice.message.content);
   }
 }
-
-main().catch((err) => {
-  console.error("The sample encountered an error:", err);
-});
-
-module.exports = { main };
