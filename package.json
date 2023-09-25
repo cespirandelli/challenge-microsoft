@@ -1,0 +1,17 @@
+{
+  "name": "challenge_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/identity": "^3.3.0",
+    "@azure/openai": "^1.0.0-beta.5",
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1"
+  }
+}
