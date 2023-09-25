@@ -23,11 +23,11 @@ export function obterTresMenoresPrecos(produtos) {
     return produtos.slice(0, 3);
   }
 
-export async function buscarProdutos() {
+export async function buscarProdutos(produto) {
   // Parâmetros da requisição
   const params = {
     'api-version': '2023-07-01-Preview',
-    'search': 'arroz',
+    'search': produto,
   };
 
   // Configuração dos headers
