@@ -38,15 +38,18 @@ export async function buscarProdutos(produto) {
 
 
   // Requisição HTTP
-  axios.get(url, {
+  const result = axios.get(url, {
     params,
     headers,
   })
     .then((response) => {
       const data = response.data.value; 
-      console.log('Resposta da requisição:', obterTresMenoresPrecos(data));
+      const result = obterTresMenoresPrecos(data); 
+      return result;
     })
     .catch((error) => {
       console.error('Erro na requisição:', error);
     });
+
+    return result;
 }
