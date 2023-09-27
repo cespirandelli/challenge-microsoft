@@ -1,5 +1,5 @@
-import { buscarProdutos } from "./search.js";
-import { chat } from "./openai.js";
+import { buscarProdutos } from "../search.js";
+import { chat } from "../openai.js";
 import express from 'express';
 
 const app = express();
