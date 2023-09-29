@@ -1,0 +1,17 @@
+POST http://127.0.0.1:5001/easy-shop-e1674/us-central1/receber HTTP/1.1
+Content-Type: application/json
+
+{
+    "text": "quero comprar 1 quilo de carne"
+}
+
+
+
+#####
+
+POST https://receber-pcx53brsua-uc.a.run.app HTTP/1.1
+Content-Type: application/json
+
+{
+    "text": "quero comprar 1 quilo de carne"
+}
